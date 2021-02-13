@@ -1,0 +1,18 @@
+<nav id='sidebarMenu' class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky ms-3 pt-3">
+{% if subject_list %}
+    <ul class="nav flex-column">
+        <h3> Subjects</h3>
+    {% for sj in subject_list %}
+        <li class="nav-item">
+            <a href="{{ sj.get_absolute_url }}" class="nav-link">                
+            {{ sj.name }}
+            </a>
+        </li>
+    {% endfor %}
+{% else %}
+        <p>No Subjects yet!</p>
+    </ul>
+{% endif %}
+</div>
+</nav>

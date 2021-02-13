@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card mt-3">
+      <div class="card-body">
+          <h1>This is the Nigerian Expo!</h1>
+          <p>Access past questions that help you prepare adequately for exams</p>
+          <a href="{% url 'subjects:index' %}" class="btn btn-dark">Veiw Learning materials ></a>
+      </div>
+  </div>
+{% endblock content %}

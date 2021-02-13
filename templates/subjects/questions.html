@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-grid gap-2 col-6 mx-auto">
+    <a href="{% url 'subjects:index' %}" class="btn btn-secondary btn-sm mb-3">Back to Subjects</a>
+</div>
+
+{% comment %}
+<div class="d-grid gap-2 col-6 mx-auto">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endcomment %}
+{% if paper_list %}
+{% for pp in paper_list %}
+
+<section class="card m-5 p-3">
+    <div class="d-grid gap-2 col-6 mb-5 mx-auto">
+        <h3><strong> Question {{ forloop.counter }}</strong></h3>
+        {% if pp.image %}
+        <!-- <img src="..." class="img-fluid" alt="..."> -->
+            <img src="{{ pp.image.url }}" class="rounded mx-auto d-block" alt="...">
+
+        {% endif %}
+        <h4 class="text-center mb-3">{{ pp.question }}</h4>
+<!-- col-6 -->
+        <form action="{#{% url 'subjects:answer' pp.id %}#}" id="{{ pp.id }}" method="POST">
+            <div id="answer{{ forloop.counter0 }}" class="text-answer d-grid gap-2  mb-5 mx-auto">
+        
+            </div>
+
+
+            {% csrf_token %}
+            
+            {% for ch in pp.choices.all %}
+                <div class="form-check form-switch">
+                    <input 
+                    type="radio" 
+                    name="choice" 
+                    class="form-check-input" 
+                    id="choice{{ ch.id }}"
+                    value="{{ ch.id }}">
+                    <label for="choice{{ ch.id }}">{{ ch.choice }}</label>
+                </div>
+            {% endfor %}
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="submit" value="Submit" class="btn btn-success btn-lg mt-4">
+            </div>
+            {% if pp.description %}
+            <!-- href="#collapseExample"  -->
+            <p class="d-grid gap-2 col-6 mt-3 mx-auto">
+            <a class="btn btn-outline-info" 
+                data-bs-toggle="collapse" 
+                role="button" 
+                aria-expanded="false" 
+                aria-controls="collapseExample">
+                  Show Explanantion
+            </a>
+              </p>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">                    
+                        {{ pp.description }}
+                </div>
+              </div>
+              {% endif %}
+        </form> 
+    </div>
+</section>
+    {% endfor %}    
+{% else %}
+  <p>No Questions yet!</p>
+{% endif %}
+  
+{% endblock content %}
+

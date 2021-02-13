@@ -1,0 +1,55 @@
+{% extends 'base.html' %} 
+
+
+{% block sidebar %}
+{% include 'partials/_sidebar.html' with subject_list=subject_list %}
+{% endblock sidebar %}
+
+{% block content %}
+<h1 class="text-center mb-3">Papers</h1>
+<section class="d-flex justify-content-around">
+{% if paper_list %}
+    {% for pl in paper_list %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="lead">
+                    <a href="{{ pl.get_absolute_url }}" class="stretched-link">
+
+                        {{ pl.subject.name }} - {{ pl.exam_year }}
+                    </a>
+                </p>
+                
+                {% comment %}
+                <!-- {#<a href="{% url 'subjects:detail' sj.pk %}" class="btn btn-primary btn-sm"
+                    >See Questions</a>#} -->                    
+                {% endcomment %}
+                    
+            </div>
+        </div>
+    {% endfor %}    
+{% else %}
+    {% if subject_list %} 
+        {% for sj in subject_list %} 
+            {% for p in sj.papers.all|dictsortreversed:"exam_year" %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="lead">
+                            <a href="{{ p.get_absolute_url }}" class="stretched-link">
+
+                                {{ p.subject.name }} - {{ p.exam_year }}
+                            </a>
+                        </p>
+                        {% comment %}                          
+                        <!-- {#<a href="{% url 'subjects:detail' sj.pk %}" class="btn btn-primary btn-sm"
+                        >See Questions</a>#} -->
+                        {% endcomment %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %} 
+    {% else %}
+        <p>No Subjects yet!</p>
+    {% endif %}
+{% endif %}
+</section>
+{% endblock content %}
