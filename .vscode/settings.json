@@ -12,4 +12,11 @@
         "--max-line-length=120"
     ],
     "editor.formatOnSave": false,
+    "emmet.includeLanguages": {"django-html": "html"},
+    "files.associations": {
+        "**/*.html": "html",
+        "**/templates/**/*.html": "django-html",
+        "**/templates/**/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
 }

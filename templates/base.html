@@ -47,26 +47,9 @@
     </main>
     <!-- footer -->
     {% include "partials/_footer.html" %}
+    <div id='toTop' class="btn btn-light btn-lg"><i class="bi bi-shift-fill"></i></div>
     <script>
       $( function() {
-
-        // $('#search').keypress(function(e){
-        //   if(e.which == 13){
- 
-        //     // let query = $('#search').val() 
-
-        //     // $.ajax({
-        //     //   type: "GET",
-        //     //   url: "{% url 'search' %}",
-        //     //   data: {q: query},
-        //     //   success: function(result){
-        //     //     // alert("Success");
-        //     //     console.log(result);
-        //     //   }
-        //     // });
-        //   }
-        // })
-              
         $( "#search" ).autocomplete({
           source: "{% url 'subjects:autosuggest' %}",
           appendTo: "#header",
