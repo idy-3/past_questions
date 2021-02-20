@@ -52,6 +52,7 @@ class Question(models.Model):
     paper = models.ForeignKey(
         Paper, models.CASCADE, related_name="questions")
     question = models.CharField(max_length=1000)
+    instruction = models.CharField(max_length=1000, null=True, blank=True)
     image = models.ImageField(blank=True, null=True, upload_to=image_file_path)
     description = models.TextField(blank=True, null=True)
 

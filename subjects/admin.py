@@ -38,7 +38,8 @@ class ChoiceInline(admin.TabularInline):
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    fieldsets = [(None, {'fields': ['question']}),
+    fieldsets = [(None, {'fields': ['instruction']}),
+                 (None, {'fields': ['question']}),
                  (None, {'fields': ['paper']}),
                  (None, {'fields': ['description']}),
                  ('Image', {'fields': ['image'], 'classes': ['collapse']})]

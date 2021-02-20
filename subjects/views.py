@@ -21,11 +21,7 @@ def index(request, subject_id=None):
 
 
 def paper_view(request, paper_id):
-    # question_list = Question.objects.filter(subject=subject_id)
     if request.method == 'POST':
-        # print(request.POST)
-        # print('choice', int(request.POST['choice']))
-        # print("question_id", int(request.POST['question_id']))
 
         question = get_object_or_404(Question, pk=int(request.POST['question_id']))
         is_correct = question.choices.get(is_correct=True)
@@ -44,15 +40,7 @@ def paper_view(request, paper_id):
         return render(request, 'subjects/questions.html', {'paper_list': paper_list})
 
 
-def search(request):
-    print(request.GET)
-    # , kwargs={'bar': "FooBar"}
-    # return render(request, "subjects/search.html")
-    return redirect(reverse("subjects/search.html"))
-
-
 def autosuggest(request):
-    # + ',' + str(i.get_absolute_url())
     q = request.GET.get('term')
     subjects = Subject.objects.filter(Q(name__icontains=q) | Q(exam_type__icontains=q))
     papers = Paper.objects.filter(Q(exam_year__icontains=q))
@@ -60,6 +48,5 @@ def autosuggest(request):
     s_list = [str(i) + ',__' + i.get_absolute_url() for i in subjects]
     p_list = [str(i) + ',__' + i.get_absolute_url() for i in papers]
     q_list = [str(i) + ',__' + i.get_absolute_url() for i in question]
-    # print(s_list)
-    # print(p_list)
+
     return JsonResponse(s_list + p_list + q_list, safe=False)
