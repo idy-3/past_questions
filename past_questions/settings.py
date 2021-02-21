@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 
 # @TODO Disqus Comment
-# @TODO Google ads
-# @TODO Dockerize app
+# @TODO ads
+
 
 from django.core.management.utils import get_random_secret_key
 from pathlib import Path
@@ -50,9 +50,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 3rd party apps
-
+    'tinymce',
+    'django_extensions',
     # my apps
-    'subjects'
+    'subjects',
+    'pages',
 ]
 
 MIDDLEWARE = [
@@ -150,3 +152,22 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+
+# TINYMCE CONFIGURATIONS
+# https://django-tinymce.readthedocs.io/en/latest/
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "420px",
+    "width": "960px",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    # "language": "es_ES",  # To force a specific language instead of the Django current language.
+}

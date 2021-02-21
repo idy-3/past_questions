@@ -9,9 +9,9 @@ from django.forms import inlineformset_factory
 
 from subjects.models import Subject, Paper, Question, Choice
 
-admin.site.site_header = "Naija Expo Admin"
-admin.site.site_title = "Naija Expo Admin Area"
-admin.site.index_title = "Welcome to the Naija Expo admin area!"
+admin.site.site_header = "Naija Revisions Admin"
+admin.site.site_title = "Naija Revisions Admin Area"
+admin.site.index_title = "Welcome to the Naija Revisions admin area!"
 
 
 class ChoiceInlineFormSet(forms.BaseInlineFormSet):

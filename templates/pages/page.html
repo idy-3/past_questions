@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card mt-3">
+  <h4 class="card-header text-center">{{ content.name }}</h4>
+      <div class="card-body">
+         {{ content.content|safe }}
+      </div>
+  </div>
+{% endblock content %}

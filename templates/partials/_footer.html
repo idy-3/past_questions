@@ -1,6 +1,22 @@
 <footer class="footer mt-auto py-3 bg-light " >
     
     <div class="container d-flex flex-row-reverse">
-      <span class="text-muted">&#169; {% now "Y" %}. Revision.ng</span>
+      <span class="text-muted">&#169; {% now "Y" %}. NaijaRevisions.ng</span>
+    {% comment %} <span class=" me-5">
+      <a href="{% url 'page' slug='terms-and-conditions' %}" class="stretched-link">TOS</a> <span> /</span>
+      <a href="{% url 'page' slug='privacy' %}" class="stretched-link">Privacy</a>
+    </span> {% endcomment %}
+
+<nav aria-label="breadcrumb ">
+  <ol class="breadcrumb  me-5">
+    <li class="breadcrumb-item">
+    <a href="{% url 'page' slug='terms-and-conditions' %}" class="">Terms and Conditions</a>
+    </li>
+    <li class="breadcrumb-item">
+    <a href="{% url 'page' slug='privacy' %}" class="">Privacy</a>
+    </li>
+  </ol>
+</nav>
+
     </div>
   </footer>

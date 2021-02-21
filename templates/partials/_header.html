@@ -1,22 +1,24 @@
-<header id="header" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/">Revisions.ng</a>
-    <div class="navbar w-100 py-0 flex-md-nowrap">
-    <!-- <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">About</a>
-      </li>
-    </ul> -->
+<header id="header" class="navbar navbar-expand-md navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 accent-color" href="/">Naija Revisions</a>
+    <div class="w-100 py-0 navbar  flex-md-nowrap">
+        <input id="search" class="form-control form-control-dark"  type="search" name="search" placeholder="Search" aria-label="Search">
+
+    <div class="">
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dropMenu" aria-controls="dropMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
     
-    <input id="search" class="form-control form-control-dark " style="width: 30%;" type="search" name="search" placeholder="Search" aria-label="Search">
-    <div>
-    <ul class="navbar-nav px-3 d-none d-sm-block d-sm-none d-md-block">
-      <li class="nav-item text-nowrap nav-link "> 
-        <a class="btn btn-outline-secondary text-white" >About</a>
-        </li>
-    </ul> 
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <div class="navbar-collapse collapse" id="dropMenu">
+          {% comment %} px-3 d-none d-sm-block d-sm-none d-md-flex flex-row {% endcomment %}
+          <ul class="navbar-nav px-3 d-md-flex flex-row me-5 ">
+            <li class="nav-item text-nowrap nav-link me-3"> 
+              <a class="btn btn-outline-secondary text-white accent-color" href="{% url 'page' slug='about' %}" >About</a>
+            </li>
+            <li class="nav-item text-nowrap nav-link me-3"> 
+              <a class="btn btn-outline-secondary text-white accent-color" href="{% url 'page' slug='privacy' %}" >Contact</a>
+            </li>
+          </ul> 
+        </div>
   </div>
   </div>
   </header>
