@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 
 # @TODO Disqus Comment
+# @TODO rest or graphql api
+# @TODO hire data entry personnel
 # @TODO ads
+# @TODO get domain
+# @TODO favicon
 
 
 from django.core.management.utils import get_random_secret_key
@@ -52,6 +56,7 @@ INSTALLED_APPS = [
     # 3rd party apps
     'tinymce',
     'django_extensions',
+    'graphene_django',
     # my apps
     'subjects',
     'pages',
