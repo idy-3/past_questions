@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'tinymce',
     'django_extensions',
     'graphene_django',
+    'import_export',
+    'django_mathjax',
     # my apps
     'subjects',
     'pages',
@@ -176,3 +178,11 @@ TINYMCE_DEFAULT_CONFIG = {
     "custom_undo_redo_levels": 10,
     # "language": "es_ES",  # To force a specific language instead of the Django current language.
 }
+
+# MATHJAX FOR LATEX MATHS EQUATIONS
+# USING Django-MathJax - https://pypi.org/project/django-mathjax/0.0.3/
+# http://asciimath.org/
+
+MATHJAX_ENABLED = True
+# MATHJAX_CONFIG_FILE = "TeX-AMS-MML_HTMLorMML"
+MATHJAX_CONFIG_FILE = "AM_CHTML"
