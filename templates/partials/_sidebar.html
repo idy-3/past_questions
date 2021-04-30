@@ -6,7 +6,7 @@
     {% for sj in subject_list %}
         <li class="nav-item">
             <a href="{{ sj.get_absolute_url }}" class="nav-link">                
-            {{ sj.name }}
+            {{ sj.name|title }}
             </a>
         </li>
     {% endfor %}

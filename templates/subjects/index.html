@@ -15,7 +15,7 @@
                 <p class="lead">
                     <a href="{{ pl.get_absolute_url }}" class="stretched-link">
 
-                        {{ pl.subject.name }} - {{ pl.exam_year }}
+                        {{ pl.subject.name|title }} - {{ pl.exam_year }}
                     </a>
                 </p>
                 
@@ -36,7 +36,7 @@
                         <p class="lead">
                             <a href="{{ p.get_absolute_url }}" class="stretched-link">
 
-                                {{ p.subject.name }} - {{ p.exam_year }}
+                                {{ p.subject.name|title }} - {{ p.exam_year }}
                             </a>
                         </p>
                         {% comment %}                          
